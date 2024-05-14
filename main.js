@@ -2,10 +2,17 @@ const GRIDSIDE = 600;
 let rows = 16;
 let cols = 16;
 let clr="blue"
+let click=false;
 
 
 const sketchArea = document.querySelector("#sketch-area");
 
+const body=document.querySelector("body")
+body.addEventListener("click", function (e) {
+    if (e.target.tagName !="BUTTON") {  //checks whether the pressed key is "Enter"
+        click=!click;
+    }
+});
 
 
 sketchArea.style.width = `${GRIDSIDE}px`;
@@ -23,21 +30,26 @@ function createGridCells() {
   
         function addHovermouse() {
             gridCell.addEventListener("mouseover", (event) => {
-                
-                event.target.style.backgroundColor =clr;
+                if (click){
+                    event.target.style.backgroundColor =clr;
+                }
             })
         }
         addHovermouse()
     }
     function changeColor(){
         clr=prompt("Type the color you need")
-        gridCell.addEventListener("mouseover", (event) => {
+        /*gridCell.addEventListener("mouseover", (event) => {
                 
             event.target.style.backgroundColor =clr;
-        })
+        })*/
+        addHovermouse()
     
     }
     colorButton.addEventListener("click",changeColor);
+    
+    body.addEventListener("keydown",toggler(e))
+
 
 }
 const gridButton=document.querySelector("#gridButton");
@@ -51,7 +63,7 @@ function change(){
     cols=changer;
     document.querySelectorAll('.cell').forEach(e => e.remove());
     createGridCells()
-    return rows,cols
+
 }
 const colorButton=document.querySelector('#colorButton')
 

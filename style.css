@@ -24,5 +24,11 @@ body {
 #gridButton{
     padding:20px;
     margin-left:80px;
+    background-color:cadetblue
 
+}
+#colorButton{
+    padding:20px;
+    background-color:lightblue;
+    margin:10px;
 }
