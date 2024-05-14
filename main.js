@@ -4,11 +4,11 @@ let cols = 16;
 
 
 const sketchArea = document.querySelector("#sketch-area");
-sketchArea.style.width =`${GRIDSIDE}px`;
-sketchArea.style.height =`${GRIDSIDE}px`;
+sketchArea.style.width = `${GRIDSIDE}px`;
+sketchArea.style.height = `${GRIDSIDE}px`;
 
 function createGridCells() {
-    for(let i = 0; i < (rows * cols); i++) {
+    for (let i = 0; i < (rows * cols); i++) {
         const gridCell = document.createElement("div");
 
         gridCell.style.width = `${(GRIDSIDE / cols) - 2}px`;
@@ -16,8 +16,16 @@ function createGridCells() {
         gridCell.classList.add("cell");
 
         sketchArea.appendChild(gridCell);
+
+        function addHovermouse() {
+            gridCell.addEventListener("mouseover", (event) => {
+              
+                event.target.style.backgroundColor ="red";
+            })
+        }
+        addHovermouse()
     }
 }
 
+createGridCells();
 
-createGridCells();s
