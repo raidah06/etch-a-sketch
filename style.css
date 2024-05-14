@@ -4,6 +4,10 @@
 }
 body {
     background-color: aliceblue;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
 }
 
 #sketch-area {
@@ -16,4 +20,9 @@ body {
 
 .cell {
     border: 1px solid whitesmoke;
+}
+#gridButton{
+    padding:20px;
+    margin-left:80px;
+
 }
